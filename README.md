@@ -6,4 +6,5 @@ Za pokretanje frontend-a aplikacije:
 3. Potom je moguce aplikaciju pokrenuti komandom ng serve.
 
 Za pokretanje beckend-a aplikacije se preporucuje koriscenje IntelliJ-a. 
-Neopdhodno je otvoriti svaki od 4 servisa u posebnom window-u i pokrenuti svaki od njih.
+1. Potrebna je instalacija Jave 1.8.
+2. Otvoriti svaki od 4 servisa u posebnom window-u i pokrenuti svaki od njih.
