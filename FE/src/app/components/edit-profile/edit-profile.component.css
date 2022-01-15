@@ -1,0 +1,37 @@
+
+.slika {
+    width: 120px;
+    height: 120px;
+  }
+  .slika-conteiner {
+    display: flex;
+    flex-direction: row;
+  
+  }
+  .mat-form-field{
+    width:100%;
+  }
+
+    .container {
+  background-color:  rgb(209, 203, 203); ;
+  align-items: center;
+  justify-content: center;
+
+    }
+    .mat-expansion-panel-header,
+    .mat-expansion-panel {
+      background: rgb(209, 203, 203);
+    }
+    .alert{
+      width:80%;
+    }
+
+    input[type="file"] {
+      visibility: hidden;
+    }
+  
+  .profil{
+    margin-bottom: 12%;
+  }
+
+  

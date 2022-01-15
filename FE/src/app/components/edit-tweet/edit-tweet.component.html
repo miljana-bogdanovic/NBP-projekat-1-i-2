@@ -1,0 +1,28 @@
+
+<div class="container-lg   rounded-lg align-items-center justify-content-center" >
+    <div class="card-body" *ngIf="tweet">
+          <form [formGroup]="tweet" (ngSubmit)="onSubmit()" class="">
+
+              <div class="form-group">
+             <mat-form-field>
+  
+                <textarea
+                matInput
+                  cols="40" rows="5"
+                  id="body"
+                  formControlName="body"
+                  class="form-control body"
+                  required>
+                  </textarea>
+  
+            </mat-form-field>
+          </div>
+
+              <div  class="row align-items-center justify-content-center">
+            <button class=" col-xs-12 col-md-4 mx-1 btn btn-primary mr-1 predaja" type="submit" [disabled]=" tweet!.controls['body'].value==''" >Save</button>
+            <button class=" col-xs-12 col-md-4 mx-1 btn btn-danger mr-1 predaja" (click)="cancel()" >Cancel</button>
+          </div>
+          </form>
+        </div>
+      </div>
+  

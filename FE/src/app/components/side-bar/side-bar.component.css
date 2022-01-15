@@ -1,0 +1,12 @@
+.sidebar 
+{
+    width:50px;
+    margin-left: 50%;
+    margin-top: 15%;
+}
+
+.hash {
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}

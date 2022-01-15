@@ -1,0 +1,20 @@
+<div class="row justify-content-center align-items-center">
+  <section class="container my-3 rounded-lg   whole">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12">
+        <app-tweet
+          class="col-md-4 "
+          *ngFor="let tweetEl of tweets "
+          [tweet]="tweetEl "
+          (tweetCreated)="onTweetCreated()"
+          (tweetChanged)="onTweetChanged(tweetEl)"
+          (tweetDeleted)= "onTweetDeleted($event)"
+        >
+        </app-tweet>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+

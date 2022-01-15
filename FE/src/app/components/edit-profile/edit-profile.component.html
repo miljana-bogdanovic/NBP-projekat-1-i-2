@@ -1,0 +1,119 @@
+
+
+<div class="container-fluid   d-flex   justify-content-center align-items-center " *ngIf="form">
+
+  <div class="container p-4 rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row ">
+
+  <div class="form-group col-11">
+  <div class="slika-conteiner justify-content-center align-items-center" >
+    <img
+            [src]="this.imageSrc"
+            alt=""
+            class="rounded-circle img-fluid slika"
+          />
+  </div>
+
+    <div>
+      <div class="col-md-12 text-center">
+        <button class="btn btn-info text-center dugme row" type="button" (click)="filePicker.click()">Change photo</button>
+       
+    </div>
+    <input type="file" type="file" accept="image/*" #filePicker (change)="handleInputChange($event)" />
+    </div>
+  </div>
+
+  <div class="col-1" (click)="cancel()">
+    <span class="col-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+          </svg>
+      </span>
+  </div>
+</div>
+
+    <div class="form-group">
+      <mat-form-field>
+      <label for="name">Name</label>
+      <input
+      matInput
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+    </mat-form-field>
+    </div>
+    <div class="form-group">
+    <mat-form-field>
+      <label for="lastname">Lastname</label>
+      <input
+      matInput
+        type="text"
+        class="form-control"
+        id="lastname"
+        formControlName="lastname"
+      />
+    </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <label for="email">Email</label>
+        <input
+        matInput
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+      </mat-form-field>
+      </div>
+
+    <!-- <mat-expansion-panel [expanded]="true" class="pass">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-center"> Change password </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-group">
+          <mat-form-field>
+          <mat-label for="password">Old password</mat-label>
+          <input
+          matInput
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder=" Password"
+          />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+        <mat-form-field>
+          <mat-label for="newPassword">New password</mat-label>
+          <input
+          matInput
+            type="password"
+            class="form-control"
+            formControlName="newPassword"
+            placeholder="New password"
+          />
+        </mat-form-field>
+        </div>
+      </mat-expansion-panel> -->
+
+    <div class="form-group row justify-content-center mt-2">
+      <button  class="btn btn-primary col-xs-12 mr-1"  button="submit" >
+        <!-- [disabled]="form!.controls['password'].value!='' && form!.controls['newPassword'].value==''" -->
+        Save
+      </button>
+
+  </div>
+  </form>
+  </div>
+  </div>
+
+
+
+
+

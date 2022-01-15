@@ -1,0 +1,66 @@
+<div class="container-fluid p-0 kontejner mt-5" *ngIf="form">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="example-form col-xl-2"
+  >
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="input-group mb-3" appearance="fill">
+        <input
+          formControlName="username"
+          matInput
+          type="text"
+          required
+          placeholder="username"
+        />
+        <mat-error *ngIf="form!.controls['username'].invalid"
+          >Please eneter a username</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="input-group mb-3 password" appearance="fill">
+        <input
+          [type]="hide ? 'password' : 'text'"
+          matInput
+          formControlName="password"
+          name="password"
+          required
+          placeholder="Password"
+        />
+        <mat-error *ngIf="form!.controls['password'].invalid"
+          >Please enter your password</mat-error
+        >
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-between dugme">
+      <button
+        mat-raised-button
+        type="submit"
+        class="btn btn-info ml-5"
+        [disabled]="form!.invalid"
+      >
+        Log in
+      </button>
+    </div>
+    <div class="row dugme row-no-gutters">
+      <div class="col-6 align-items-center dontHave">
+        <p class="text-right mb-0">Don't have an account?</p>
+      </div>
+      <a class="nav-link col-6" [routerLink]="['/registration']">Sign in!</a>
+    </div>
+  </form>
+</div>

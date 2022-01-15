@@ -1,0 +1,39 @@
+@media only screen and (max-width: 768px) {
+    .btn-outline-primary {
+      width: 70%;
+    }
+    .izbor {
+      width: 95%;
+    }
+  }
+  .container {
+    margin-top: 5%;
+
+  }
+
+  mat-from-field {
+    width: 100;
+  }
+  
+  input[type="file"] {
+    visibility: hidden;
+  }
+  
+  .slika {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 1%;
+  }
+  .slika-conteiner {
+    display: flex;
+    flex-direction: row;
+  }
+  .forma {
+    margin-top: 30px;
+    margin-bottom: 3.5em;
+  }
+  
+  mat-card {
+    box-shadow: none !important;
+    margin-top: 0 !important;
+  }

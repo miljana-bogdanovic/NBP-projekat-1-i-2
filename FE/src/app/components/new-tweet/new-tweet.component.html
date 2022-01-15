@@ -1,0 +1,29 @@
+
+<div class="container-lg mt-5  rounded-lg align-items-center justify-content-center" >
+    <div class="card-body" *ngIf="newTweet">
+          <form [formGroup]="newTweet" (ngSubmit)="onSubmit()" class="">
+
+              <div class="form-group">
+             <mat-form-field>
+  
+                <textarea
+                matInput
+                  cols="40" rows="5"
+                  id="body"
+                  formControlName="body"
+                  class="form-control body"
+                  placeholder="Whats happening?"
+                  required>
+                  </textarea>
+  
+            </mat-form-field>
+          </div>
+
+              <div  class="row align-items-center justify-content-center">
+            <button class="btn btn-primary mr-1 predaja" type="submit" [disabled]=" newTweet!.controls['body'].value==''" >Tweet</button>
+          
+          </div>
+          </form>
+        </div>
+      </div>
+  

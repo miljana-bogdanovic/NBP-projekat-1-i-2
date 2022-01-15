@@ -1,0 +1,33 @@
+<div class="row justify-content-end mr-1 ml-2 px-5">
+    <span class="mt-2 ml-1 col-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+        class="bi bi-search" viewBox="0 0 16 16">
+        <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+    </svg></span>
+    <form #searchForm="ngForm" class="col-11">
+      
+        <input class="form-control" type="search" placeholder="Search " aria-label="Search" name="searchValue" required
+            [(ngModel)]="search" />
+    </form>
+    
+</div>
+<div class="row">
+
+    <div class="col-12">
+        <div class="row " *ngFor="let user of this.users  | async | UserFilter: search">
+            <div class="col-2 my-2 mx-auto text-center">
+                <img [src]="this.user.image" alt="" class="rounded-circle img-fluid slika" />
+
+            </div>
+            <div class="col-10  align-items-center">
+                <div (click)=" profile(user.username)">
+                    <b> {{user!.firstName }} {{user!.lastName }}</b> @{{ user.username }}
+                </div>
+            </div>
+           
+        </div>
+<div class="najevci">
+    <app-new-tweet></app-new-tweet>
+    <app-tweet-list [tweets]="this.tweets" (tweetChanged)="onTweetChange()"></app-tweet-list>
+</div>
+       

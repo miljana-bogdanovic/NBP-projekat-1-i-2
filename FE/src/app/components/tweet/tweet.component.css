@@ -1,0 +1,24 @@
+img {
+  max-width: 40px;
+  max-height: 40px;
+}
+.slika {
+  padding-left: 3%;
+}
+.retweet {
+  padding-left: 12px;
+}
+@media only screen and (max-width: 815px) {
+  .retweet {
+    padding-left: 12px;
+  }
+}
+.text {
+  margin-left: 5%;
+}
+.multiline {
+  white-space: pre-wrap;
+}
+.username {
+  margin: 0px;
+}

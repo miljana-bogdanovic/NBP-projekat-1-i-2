@@ -1,0 +1,115 @@
+<div class="whole my-5" >
+  <div class="row p-1">
+    <div class="col-1 slika text-right">
+      <img
+        [src]="tweet!.photo"
+        alt=""
+        class="img-fluid rounded-circle my-2"
+        (click)="profile(this.tweet!.originalOwnerUsername)"
+      />
+    </div>
+    <div  [ngClass]="this.isMine ? 'col-9' : 'col-11'" >
+      <div class="row">
+        <div class="col-12 retweet" *ngIf="tweet!.isRetweet" (click)="profile(this.tweet!.retweetedFrom)">
+          <span class="col-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-shuffle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"
+              />
+              <path
+                d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"
+              />
+            </svg>
+          </span>
+          {{ tweet!.retweetedFrom }}
+        </div>
+        <div class="col-11 text">
+          <h2 class="username" (click)="profile(this.tweet!.originalOwnerUsername)">
+           <b>{{ tweet!.firstName }} {{ tweet!.lastName }}</b> <small> @{{ tweet!.originalOwnerUsername }}</small>
+          </h2>
+         
+           
+        </div>
+        <div class="col-11 text" *ngIf="!this.edit">
+          <p class="multiline">
+            {{ tweet!.body }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2" *ngIf="this.isMine && !this.edit">
+      <div class="row">
+        <div *ngIf="!this.tweet!.isRetweet! "class="col-lg-6 col-md-12 mx-auto  my-2" (click)="onEditClick()" >
+          <span class="ml-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+          </span>
+  
+           
+          </div>
+          <div class="col-lg-6 col-md-12 mx-auto  my-2" (click)="onDeleteClick()" >
+            <span class="ml-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+            </span>
+    
+             
+            </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="col-12" *ngIf="this.edit">
+    <app-edit-tweet [tweetObject]="this.tweet" (close)="toggleEdit(this.tweet!.body)"></app-edit-tweet>
+  </div>
+  <div class="col-12 justify-content-center align-items-center text-center" *ngIf="!this.edit">
+    <div class="row">
+      <div class="col-6" (click)="toggleLike()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          [ngStyle]="{ 'fill': (tweet!.isLikedByUser ? 'red' : 'currentColor')}"
+          class="bi bi-heart"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+          />
+        </svg>
+        {{ tweet!.likes }}
+      </div>
+      <div class="col-6" (click)="toggleTweet()" *ngIf="this.canRetweet">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          [ngStyle]="{ 'fill': (tweet!.isRetweetedByUser ? 'blue' : 'currentColor')}"
+          class="bi bi-shuffle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"
+          />
+          <path
+            d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"
+          />
+        </svg>
+        {{ tweet!.retweets }}
+      </div>
+    </div>
+  </div>
+</div>

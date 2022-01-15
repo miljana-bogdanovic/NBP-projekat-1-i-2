@@ -1,0 +1,67 @@
+<mat-card class="container forma">
+    <div class="col-1 pb-5 pt-3">
+        <div class="col-1" [routerLink]="['/login']">
+          <span class="col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            </span>
+        </div>
+      </div>
+
+    <form [formGroup]="form!" (ngSubmit)="onSubmit()">
+        <div class="row mx-0 justify-content-around">
+            <div class="form-group ml-10 justify-content-center align-items-center ">
+                
+                <div class="slika-conteiner justify-content-center align-items-center ">
+                    <img [src]="this.imageSrc" class="slika">
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-info text-center dugme row" type="button" (click)="filePicker.click()">Add photo</button>
+                   
+                </div>
+                <input type="file" type="file" accept="image/*" #filePicker (change)="handleInputChange($event)" />
+
+
+            <div class="row justify-content-center mb-3 form-group mt-2">
+                <mat-form-field class="input-group mb-3 form-group col-md-6" appearance="fill">
+                    <mat-label> Username</mat-label>
+                    <input formControlName="username" matInput type="text" name="username" required />
+                    <mat-error *ngIf="form!.controls['username'].invalid">Please eneter your username</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="input-group mb-3 form-group col-md-6" appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="firstName" matInput type="text" name="name" required />
+                    <mat-error *ngIf="form!.controls['firstName'].invalid">Please eneter your name</mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-group mb-3 form-group col-md-6" appearance="fill">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" name="lastname" formControlName="lastName" required />
+                    <mat-error *ngIf="form!.controls['lastName'].invalid">Please eneter your lastname</mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-group mb-3 form-group col-md-6" appearance="fill">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput type="email" name="email" formControlName="email" required />
+                    <mat-error *ngIf="form!.controls['email'].invalid">Please eneter your e-mail</mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-group mb-3 lozinka form-group col-md-6" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput name="password" formControlName="password" required
+                        [type]="hide ? 'password' : 'text'" />
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-pressed]="hide" type="button">
+                        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <div class="container">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-info" type="submit">Create account</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+</mat-card>

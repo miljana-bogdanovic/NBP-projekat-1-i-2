@@ -1,0 +1,41 @@
+version: "3"
+services:
+  cassandra-db-tweet-service:
+    image: cassandra:2.1
+    container_name: cassandra-db-tweet-service
+    restart: always
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-db-volume:/data/db
+  cassandra-db-timeline-service:
+    image: cassandra:2.1
+    container_name: cassandra-db-timeline-service
+    restart: always
+    ports:
+      - "9043:9042"
+    volumes:
+      - cassandra-db-volume:/data/db
+  cassandra-db-profile-service:
+    image: cassandra:2.1
+    container_name: cassandra-db-profile-service
+    restart: always
+    ports:
+      - "9044:9042"
+    volumes:
+      - cassandra-db-volume:/data/db
+  redis:
+    image: docker.io/bitnami/redis:6.2
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis_data:/bitnami/redis/data'
+
+volumes:
+  redis_data:
+    driver: local
+  cassandra-db-volume:

@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+  }
+
+  .najevci {
+    margin-left: 10%;
+    margin-right: 5%;
+}

@@ -1,0 +1,17 @@
+
+<div class="row najevci">
+
+    <div class="col-12">
+        <div class="row " *ngFor="let tweet of this.tweetsObservable  | async | SearchTweet: search">
+            <div class="col-1 my-2 mx-auto text-center">
+                <img [src]="this.tweet.image" alt="" class="rounded-circle img-fluid slika" />
+
+            </div>
+            <div class="col-9  align-items-center">
+                <div (click)=" profile(tweet.originalOwnerUsername)">
+                    <b> {{tweet!.firstName }} {{tweet!.lastName }}</b> @{{ tweet.originalOwnerUsername }}
+                </div>
+            </div>
+           
+        </div>
+        <app-tweet-list [tweets]="this.tweets" (tweetChanged)="onTweetChange()"></app-tweet-list>
